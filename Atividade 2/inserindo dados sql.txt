@@ -1,0 +1,18 @@
+use db_lojagames;
+
+select * from tb_categoria;
+
+insert into tb_categoria(nome, fabricante) values ("Switch", "Nintendo");
+insert into tb_categoria(nome, fabricante) values ("Play Station 5", "Sony");
+insert into tb_categoria(nome, fabricante) values ("Play Station 4", "Sony");
+insert into tb_categoria(nome, fabricante) values ("Play Station 3", "Sony");
+insert into tb_categoria(nome, fabricante) values ("Xbox Series", "Microsoft");
+insert into tb_categoria(nome, fabricante) values ("Xbox One", "Microsoft");
+insert into tb_categoria(nome, fabricante) values ("Xbox 360", "Microsoft");
+
+select * from tb_produto;
+insert into tb_produto(nome, preco, categoria_id) values ("WarioWare Get It Together", 360.99, 1);
+insert into tb_produto(nome, preco, categoria_id) values ("Scarlet Nexus", 397.09, 2);
+insert into tb_produto(nome, preco, categoria_id) values ("Tennis World Tour 2", 273.59, 2);
+insert into tb_produto(nome, preco, categoria_id) values ("Mortal Kombat 11", 85.49, 3);
+insert into tb_produto(nome, preco, categoria_id) values ("LEGO Jurassic World Playstation Hits", 52.24, 3);
