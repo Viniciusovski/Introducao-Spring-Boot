@@ -1,0 +1,22 @@
+use db_farmacia;
+
+select * from tb_categoria;
+
+insert into tb_categoria(nome) values ("Medicamento");
+insert into tb_categoria(nome) values ("Home Care");
+insert into tb_categoria(nome) values ("Genéricos");
+insert into tb_categoria(nome) values ("Beleza e Higiene");
+insert into tb_categoria(nome) values ("Saúde e Bem-estar");
+
+
+/* update tb_categoria set nome = "Home Care" where id = 2; */
+
+select * from tb_produto;
+insert into tb_produto(nome, marca, preco, categoria_id) values ("Analgésico", "Novalgina", 17.65, 1);
+insert into tb_produto(nome, marca, preco, categoria_id) values ("Xantinon Complex", "União Química", 17.65, 1);
+
+insert into tb_produto(nome, marca, preco, categoria_id) values ("Marcara Descartavel", "Elitte", 50.99, 2);
+insert into tb_produto(nome, marca, preco, categoria_id) values ("Soro Fisiologico", "ADV", 8.59, 2);
+
+insert into tb_produto(nome, marca, preco, categoria_id) values ("Sabonete Em Barra", "Johnsons", 2.19, 4);
+/* update tb_produto set categoria_id = 4 where id = 5; */
