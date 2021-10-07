@@ -29,29 +29,29 @@ public class UsuarioService {
 		}
 		
 		//Criptografar senha
-		BCryptPasswordEncoder enconder = new BCryptPasswordEncoder();
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
-		String senhaEnconder = enconder.encode(usuario.getSenha());
+		String senhaEncoder = encoder.encode(usuario.getSenha());
 		
-		usuario.setSenha(senhaEnconder);
+		usuario.setSenha(senhaEncoder);
 		
 		return Optional.of(usuarioRepository.save(usuario));
 	}
 	
 	public Optional<UsuarioLogin> loginUsuario(Optional<UsuarioLogin> usuarioLogin){
-		BCryptPasswordEncoder enconder = new BCryptPasswordEncoder();
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		
 		Optional<Usuario> usuario = usuarioRepository
 				.findByUsuario(usuarioLogin.get().getUsuario());
 		
 		if(usuario.isPresent()) {
-			if(enconder.matches(usuarioLogin.get().getSenha(), usuario.get().getSenha())) {
+			if(encoder.matches(usuarioLogin.get().getSenha(), usuario.get().getSenha())) {
 				//Formação do Token
-				String auth = usuarioLogin.get().getUsuario() + usuarioLogin.get().getSenha();
+				String auth = usuarioLogin.get().getUsuario() + ":" + usuarioLogin.get().getSenha();
 				
-				byte[] encodeAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
+				byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
 				
-				String authHeader = "Basic " + new String(encodeAuth);
+				String authHeader = "Basic " + new String(encodedAuth);
 				
 				usuarioLogin.get().setId(usuario.get().getId());
 				usuarioLogin.get().setNome(usuario.get().getNome());
